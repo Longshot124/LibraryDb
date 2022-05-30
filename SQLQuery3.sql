@@ -62,3 +62,14 @@ select Books.Id,Books.[Name],Books.[PageCount], a.[Name]+' '+a.Surname as Author
 join Authors as a
 on Books.Author_Id=a.Id
 where a.[Name] =@Name
+
+exec usp_FindBooks 'John'
+
+create procedure usp_AddBooks
+@Name nvarchar(100) ,
+@PageCount int 
+as 
+insert into Books([Name],[PageCount])
+values(@Name,@PageCount)
+
+exec usp_AddBooks 'The Falls',60
