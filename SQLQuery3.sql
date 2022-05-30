@@ -85,3 +85,12 @@ update Books
 set [Name]=@Name,[PageCount]=@PageCount where Id=@Id
 
 exec usp_UpdateBooks3 2,'Chernobl2',200
+
+create procedure usp_DeleteBooks
+@Id int
+
+ as
+delete from Books
+where  Id=@Id
+
+
