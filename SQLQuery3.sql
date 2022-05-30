@@ -73,3 +73,15 @@ insert into Books([Name],[PageCount])
 values(@Name,@PageCount)
 
 exec usp_AddBooks 'The Falls',60
+
+use [Library1]
+
+create procedure usp_UpdateBooks3
+@Id int,
+@Name nvarchar(100),
+@PageCount tinyint
+as 
+update Books
+set [Name]=@Name,[PageCount]=@PageCount where Id=@Id
+
+exec usp_UpdateBooks3 2,'Chernobl2',200
